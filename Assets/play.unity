@@ -656,6 +656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 752163508}
   - component: {fileID: 752163507}
+  - component: {fileID: 752163509}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -718,6 +719,21 @@ Transform:
   - {fileID: 80330112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752163509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752163506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoundingShape2D: {fileID: 0}
+  m_Damping: 0.5
+  m_MaxWindowSize: -1
 --- !u!1001 &1001207097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cbee6c5835a15439748ca37c2971c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 40
 --- !u!50 &1001207100
 Rigidbody2D:
   serializedVersion: 4
@@ -1002,6 +1019,7 @@ MonoBehaviour:
   jumpForce: 300
   rb: {fileID: 0}
   groundCheker: {fileID: 1079874175}
+  health: {fileID: 0}
 --- !u!114 &1021833840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +1046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  isDead: 0
 --- !u!1 &1079874173
 GameObject:
   m_ObjectHideFlags: 0
