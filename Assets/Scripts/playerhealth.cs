@@ -6,13 +6,19 @@ public class playerhealth : MonoBehaviour
 {
     [SerializeField] private float health = 100;
      [SerializeField]private float maxHealth = 100;
+    public Animator anim;
 
-    public bool isDead=false;
+    private void Start()
+    {
+        anim= GetComponent<Animator>();
+    }
+
+    public bool IsDead=false;
     public void TakeDamage(float damage)
 
     {
         health=health - damage;
-        if (health < 0 );
+        if (health < 0 )
         {
           health = 0;
         }
@@ -22,7 +28,8 @@ public class playerhealth : MonoBehaviour
         }
         if(health == 0)
         { 
-            isDead=true;
+            IsDead=true;
+            anim.SetTrigger("IsDead");
         }
     }
 }
