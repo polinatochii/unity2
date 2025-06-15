@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5;
     public float runSpeed = 7;
-    public float jumpForce = 300;
+    public float jumpForce = 5;
     public Rigidbody2D rb;
     public Animator anim;
     public SpriteRenderer  SpriteRenderer;
@@ -26,6 +26,16 @@ public class PlayerController : MonoBehaviour
     void Update()
 
     {
+        {
+            anim.SetBool("isGrounded", groundCheker.isGrounded);
+            anim.SetFloat("YVelocity",rb.velocity.y);
+
+            if (Input.GetKeyDown(KeyCode.Space) && groundCheker.isGrounded)
+            {
+                rb.AddForce(Vector2.up *jumpForce);
+                anim.SetTrigger("Jump");
+            }
+        }
         if(health.IsDead) return;
         float moveInput = Input.GetAxis("Horizontal");
 
@@ -60,10 +70,13 @@ public class PlayerController : MonoBehaviour
         {
             //rb.AddForce(new Vector2(0,jumpForce));
             rb.AddForce(Vector2.up * jumpForce);
+            
+        }
+        
         }
         
     }
       
      
    
-}
+
